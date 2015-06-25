@@ -1,0 +1,304 @@
+/***********************/
+/* Tabbed Panes
+/***********************/
+
+::shadow {
+
+	.tabbed-pane-header {
+		background-image: linear-gradient(@tab-color-top, @tab-color-bottom) !important;
+		box-shadow: inset 0 1px 0 @-; .contrast(@tab-color-top,7%);
+		border-bottom: 1px solid @global-background !important;
+		border: none;
+	}
+
+	.tabbed-pane-header-tab {
+		border-color: transparent !important;
+		border-image: none !important;
+		border-left: none !important;
+		border-right: none !important;
+		border-top: 2px solid rgba(0,0,0,0) !important;
+		cursor: pointer !important;
+		margin: 0 !important;
+		margin-bottom: 1px !important;
+		margin-top: 0 !important;
+		width: auto !important;
+
+		&:hover {
+			color: @tab-label-selected !important;
+		}
+
+		&.selected {
+			background: none !important;
+			border-top: 2px solid @tab-highlighted !important;
+			color: @tab-label-selected !important;
+			font-size: 1em;
+		}
+	}
+
+	//main nav tabs
+	.tabbed-pane-header-contents {
+		box-shadow: inset 0 1px 0 @-; .contrast(@tab-color-top,7%);
+		color: @tab-label !important;
+	}
+
+	// drop-down hook when viewport is short
+	.tabbed-pane-header-tabs-drop-down-container {
+		color: @tab-label !important;
+	}
+
+	// drawer background color
+	.tabbed-pane-content {
+		background-color: @global-background !important;
+	}
+
+	// drawer (search) form labels (does this belong here?)
+	.search-drawer-header label.search-config-label {
+		color: @form-label-text !important;
+	}
+
+
+	// Glyphs
+	.status-bar-item > .glyph,
+	.shadow-split-view button.sidebar-show-hide-button {
+		background-color: @glyph-inactive !important;
+	}
+
+	.status-bar-item[disabled] {
+		opacity: 0.5 !important;
+	}
+
+	button.status-bar-item.toggled-on .glyph,
+	.filter-status-bar-item.toggled-shown .glyph,
+	button.status-bar-item:not([disabled]):active .glyph {
+		background-color: @glyph-active !important;
+	}
+
+	// sidebar borders
+	.shadow-split-view.hbox.shadow-split-view-first-is-sidebar > .shadow-split-view-sidebar:not(.maximized) {
+		border-right: 2px solid @global-divider !important;
+	}
+
+	.shadow-split-view.hbox > .shadow-split-view-sidebar:not(.maximized) {
+		border-left: 2px solid @global-divider !important;
+	}
+
+	.shadow-split-view.vbox > .shadow-split-view-resizer > .shadow-split-view-resizer-border {
+		border-top: none !important;
+	}
+
+} //::shadow
+
+
+// Adjust the height of the main navigation
+.inspector-view-tabbed-pane.tabbed-pane::shadow {
+
+	.tabbed-pane-header {
+		flex: 0 0 @tab-main-toolbar-height !important;
+	}
+
+	.tabbed-pane-header-tabs-drop-down-container {
+		padding-top: 6px !important;
+	}
+
+	.tabbed-pane-header-contents {
+		.tabbed-pane-header-tab {
+			height: @tab-main-toolbar-height !important;
+			line-height: (.75*@tab-main-toolbar-height) !important;
+		}
+	}
+}
+
+// First 2 selectors are override specific for mac because a background-image is set
+body.undocked.platform-mac.inactive .inspector-view-tabbed-pane.tabbed-pane::shadow,
+body.undocked.platform-mac .inspector-view-tabbed-pane.tabbed-pane::shadow,
+body.platform-mac.inactive .inspector-view-tabbed-pane.tabbed-pane::shadow,
+body.platform-mac .inspector-view-tabbed-pane.tabbed-pane::shadow,
+body .inspector-view-tabbed-pane.tabbed-pane::shadow {
+
+	.tabbed-pane-header {
+		background-image: linear-gradient(@tab-color-top, @tab-color-bottom) !important;
+	}
+}
+
+// isolate just the status bar and not the toolbar left/right components
+.panel .status-bar::shadow .status-bar-shadow {
+	background: -webkit-linear-gradient(@tab-color-top, @tab-color-bottom) !important;
+	box-shadow: inset 0 1px 0 lighten(@tab-color-top,7%), inset 0 -1px 0 darken(@tab-color-bottom,10%);
+	border-bottom: none !important;
+}
+
+// adjust height of left/right components of main nav
+.tabbed-pane-header-before::shadow,
+.tabbed-pane-header-after::shadow {
+
+	.status-bar-shadow {
+		height: @tab-main-toolbar-height !important;
+	}
+}
+
+
+// Drawer Toolbar
+#drawer-contents .tabbed-pane-header,
+&.inactive #drawer-contents .tabbed-pane-header {
+	border-top: none !important;
+	border-bottom: #222 !important;
+}
+
+
+select.tabbed-pane-header-tabs-drop-down-select{
+	background-color: @global-background !important;
+	color: @global-text !important;
+}
+
+// Main Toolbar
+.toolbar {
+
+	.tabbed-pane-header {
+
+		.tabbed-pane-header-tab {
+			height: @tab-main-toolbar-height !important;
+			line-height: (.75*@tab-main-toolbar-height) !important;
+			padding: 2px 4px !important;
+			cursor: pointer !important;
+			border-image: none !important;
+		}
+
+		.tabbed-pane-header-tabs-drop-down {
+			line-height: (0.9*@tab-main-toolbar-height);
+		}
+
+	}
+
+	.toolbar-controls-left,
+	.toolbar-controls-right {
+		padding-top: @tab-main-icons-padding !important;
+		border-bottom: 1px solid darken(@tab-color-bottom,10%) !important;
+		box-shadow: inset 0 1px 0 lighten(@tab-color-top,7%) !important;
+	}
+}
+
+//Network Tabs
+#network-views .network-item-view .tabbed-pane-header {
+	padding-top: 0 !important;
+
+		.tabbed-pane-header-tab {
+			height: 31px !important;
+		}
+
+		.tabbed-pane-header-tab-title {
+			line-height: 21px !important;
+		}
+}
+
+// small resource rows
+#network-views.small .network-item-view .tabbed-pane-header .tabbed-pane-header-tab-title {
+	line-height: 12px !important;
+}
+
+// Dropdown UI
+.tabbed-pane-header-tabs-drop-down {
+	color: #999 !important;
+}
+
+// Sidebar Borders
+.split-view.hbox {
+
+	> .split-view-sidebar.split-view-contents-second:not(.maximized) {
+		border-left: 2px solid @global-divider !important;
+	}
+
+	> .split-view-sidebar.split-view-contents-first:not(.maximized) {
+		border-right: 2px solid @global-divider !important;
+	}
+}
+
+// Prevent widths of tabs from truncating label text */
+.tabbed-pane-header-tab {
+	width: auto !important;
+}
+
+//FILTERS
+.filter-bitset-filter {
+
+	li,
+	li.selected,
+	li:hover,
+	li:active {
+		text-shadow: 0 0 0 rgba(0,0,0,0) !important;
+		color: @global-text !important;
+	}
+
+	li:hover {
+		background: @filter-hover !important;
+	}
+
+	li.selected {
+		color: @filter-selected-text !important;
+		background: @filter-selected !important;
+
+
+		//custom colors
+		&.error {
+			background: @filter-error !important;
+		}
+
+		&.warning{
+			background: @filter-warning !important;
+		}
+
+		&.info{
+			background: @filter-info !important;
+		}
+
+		&.log{
+			background: @filter-log !important;
+		}
+
+		&.debug{
+			background: @filter-debug !important;
+		}
+	}
+}
+
+.network-filters-header,
+.console-filters-header,
+.timeline-filters-header {
+	background: @filter-background;
+}
+
+/*separator between all | rest of options*/
+.filter-bitset-filter-divider {
+	background-color: lighten(@global-background, 10%) !important;
+}
+
+// error/warning counts on toolbar
+.status-bar-counter {
+	color: @global-text !important;
+
+	&:hover {
+		border-bottom: none !important;
+	}
+}
+
+// Subtools bar select list when real viewport is tight
+.tabbed-pane-header-tabs-drop-down > select.drop-down-menu option {
+	background-color: @global-background !important;
+	color: @global-text !important;
+}
+
+// Fix text color and icon in Emulation Drawer Tab when inactive
+.overrides-splash-screen {
+	color: @global-text !important;
+
+	.glyph {
+		background-color: @glyph-inactive !important;
+	}
+}
+
+// Change the color of the emulation checkboxes to theme color
+// canary v.39.0.2165 uses these selectors
+.tabbed-pane-header-tab.overrides-activate .tabbed-pane-header-tab-title::after {
+	color: @global-accent !important;
+}
+
+
