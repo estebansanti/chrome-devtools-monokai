@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 		compress: {
 			main: {
 				options: {
-					archive: 'theme-extension.zip',
+					archive: 'dist/latest.zip',
 					mode: 'zip'
 				},
 				files: [
@@ -56,5 +56,5 @@ module.exports = function(grunt) {
 
 	});
 
-	grunt.registerTask('default', ['less', 'cssmin']);
+	grunt.registerTask('default', ['compress', 'less', 'cssmin']);
 };
