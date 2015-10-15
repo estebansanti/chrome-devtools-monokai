@@ -41,7 +41,7 @@ body {
 	}
 
 	/deep/ .webkit-html-comment { color: @xml-comment !important; }
-	/deep/ .webkit-html-tag { color: @xml-tag !important; }
+	/deep/ .webkit-html-tag, .webkit-html-close-tag-name { color: @xml-tag !important; }
 	/deep/ .webkit-html-text-node { unicode-bidi: -webkit-isolate !important; }
 
 	// non-standard
@@ -166,6 +166,7 @@ body {
 		.webkit-html-resource-link,
 		.webkit-html-external-link {color:@xml-link!important;}
 		.webkit-html-tag,
+		.webkit-html-close-tag-name,
 		.webkit-html-tag-name {color:@xml-tag!important;}
 		.webkit-html-text-node,
 		.webkit-html-css-node,
