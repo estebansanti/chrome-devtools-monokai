@@ -1,5 +1,12 @@
-## Sublime Monokai(ish) for Chrome Dev Tools.
+## Monokai for Chrome
 
+
+### Install
+
+[Chrome App Store](https://chrome.google.com/webstore/detail/monokai-for-chrome/ebanajomahnlhgbljngocmccmpelnaam)
+
+
+### Notes
 
 This repo is a clone of [Zero Base Template](https://github.com/mauricecruz/zero-base-themes)
 
