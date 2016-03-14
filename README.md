@@ -1,5 +1,7 @@
 ## Monokai for Chrome
 
+##### Update - (03/14/2016)
+Latest version of Chrome creates small breaks to the theme. This can be fixed by enabling 'Dark' mode. To enable, go to Developer Tools -> Settings, Under Appearance, Theme: Dark.
 
 ### Install
 
