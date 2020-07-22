@@ -7,6 +7,13 @@ Latest version of Chrome creates small breaks to the theme. This can be fixed by
 
 [Chrome App Store](https://chrome.google.com/webstore/detail/monokai-for-chrome/ebanajomahnlhgbljngocmccmpelnaam)
 
+### Setup
+1. Go to chrome://extensions and ensure the theme is enabled.
+2. Go to chrome://flags and enable ``Developer Tools experiments``.
+3. Restart chrome and open devtools (ctrl+shift+i) then go to settings (shift+?).
+4. Under ``Appearance`` set the Theme to Dark.
+5. Navigate to the ``Experiments`` tab and check the box labeled "Allow custom UI themes".
+6. Close and reopen devtools and the theme will be applied.
 
 ### Notes
 
